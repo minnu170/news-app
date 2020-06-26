@@ -8,9 +8,9 @@ import { NewsApiService } from './news-api.service';
 })
 export class AppComponent implements OnInit {
 
-  Articles: any;
+  mArticles: Array<any>;
   mSources: Array<any>;
-  expanded = false;
+
   constructor(private newsapi: NewsApiService) {
     console.log('app component constructor called');
   }
@@ -18,12 +18,17 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     // load articles
     this.newsapi.initArticles().subscribe(data => {
-    this.Articles = data;
-    console.log(this.Articles, 'data');
+      // tslint:disable-next-line:no-unused-expression
+      console.log(data, 'data');
     }
-    );
+      );
+    // load news sources
+    // this.newsapi.initSources().subscribe(data => this.mSources = data['sources']);
   }
-  show()  {
-    this.expanded = true;
-  }
+
+  // searchArticles(source) {
+  //   console.log('selected source is: ' + source);
+  //   this.newsapi.getArticlesByID(source).subscribe(data => this.mArticles = data['articles']);
+  // }
+
 }

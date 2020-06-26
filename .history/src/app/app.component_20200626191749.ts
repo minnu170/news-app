@@ -10,7 +10,7 @@ export class AppComponent implements OnInit {
 
   Articles: any;
   mSources: Array<any>;
-  expanded = false;
+
   constructor(private newsapi: NewsApiService) {
     console.log('app component constructor called');
   }
@@ -22,8 +22,5 @@ export class AppComponent implements OnInit {
     console.log(this.Articles, 'data');
     }
     );
-  }
-  show()  {
-    this.expanded = true;
   }
 }

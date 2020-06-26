@@ -8,9 +8,9 @@ import { NewsApiService } from './news-api.service';
 })
 export class AppComponent implements OnInit {
 
-  Articles: any;
+ public mArticles: any;
   mSources: Array<any>;
-  expanded = false;
+
   constructor(private newsapi: NewsApiService) {
     console.log('app component constructor called');
   }
@@ -18,12 +18,8 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     // load articles
     this.newsapi.initArticles().subscribe(data => {
-    this.Articles = data;
-    console.log(this.Articles, 'data');
+      this.mArticles = data;
     }
     );
-  }
-  show()  {
-    this.expanded = true;
   }
 }
